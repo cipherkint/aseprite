@@ -22,13 +22,9 @@ jobs:
       if: runner.os == 'Linux'
       with:
         key: ${{ matrix.os }}-${{ matrix.enable_ui }}
-    - uses: turtlesec-no/get-ninja@main
+    - uses: seanmiddleditch/gha-setup-ninja@master
     - uses: ilammy/msvc-dev-cmd@v1
       if: runner.os == 'Windows'
-    - name: Workaround for windows-2022 and cmake 3.25.0
-      if: runner.os == 'Windows'
-      shell: bash
-      run: rm -rf C:/Strawberry/
     - name: Install Dependencies
       shell: bash
       run: |
@@ -63,5 +59,5 @@ jobs:
       with:
         name: aseprite
         path: |
-          E:/aseprite/aseprite/build/bin/data
-          E:/aseprite/aseprite/build/bin/aseprite.exe
+          D:/a/aseprite/aseprite/build/bin/data
+          D:/a/aseprite/aseprite/build/bin/aseprite.exe
